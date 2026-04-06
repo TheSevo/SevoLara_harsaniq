@@ -89,7 +89,7 @@
         /* Content Sections */
         .section {
             padding: 80px 20px;
-            max-width: 800px;
+            max-width: 900px; /* Slightly wider to accommodate the grid */
             margin: 0 auto;
         }
 
@@ -101,13 +101,31 @@
             font-weight: normal;
         }
 
+        /* New Grid Layout for Multiple Addresses */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
         .details-card {
             background: white;
-            padding: 40px;
+            padding: 30px;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            line-height: 1.8;
-            font-size: 1.1rem;
+            line-height: 1.6;
+            font-size: 1.05rem;
+            text-align: left;
+        }
+
+        .details-card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-family: var(--font-heading);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         /* RSVP Form */
@@ -147,11 +165,6 @@
             box-shadow: 0 0 5px rgba(93, 112, 82, 0.2);
         }
 
-        /* Hidden by default, shown via JS when attending */
-        #meal-group {
-            display: none; 
-        }
-
         button {
             background-color: var(--primary-color);
             color: white;
@@ -189,10 +202,36 @@
         <!-- Event Details -->
         <section class="section" id="details">
             <h2>The Details</h2>
-            <div class="details-card">
-                <p><strong>When:</strong><br> Saturday, August 15, 2026 at 4:00 PM</p>
-                <p><strong>Where:</strong><br> The Grand Botanical Gardens<br>123 Nature Way, Flora City, FC 12345</p>
-                <p><em>Reception to follow immediately after the ceremony. Dress code is semi-formal. We can't wait to celebrate with you!</em></p>
+            <p><em>Dress code is semi-formal. We can't wait to celebrate with you!</em></p>
+            
+            <div class="details-grid">
+                <!-- Location 1 -->
+                <div class="details-card">
+                    <h3>Ceremony</h3>
+                    <p><strong>Time:</strong> 2:00 PM</p>
+                    <p><strong>Where:</strong> St. Mary's Cathedral<br>123 Holy Way, Flora City, FC 12345</p>
+                </div>
+                
+                <!-- Location 2 -->
+                <div class="details-card">
+                    <h3>Cocktail Hour</h3>
+                    <p><strong>Time:</strong> 4:00 PM</p>
+                    <p><strong>Where:</strong> Botanical Garden Terrace<br>456 Nature Path, Flora City, FC 12345</p>
+                </div>
+
+                <!-- Location 3 -->
+                <div class="details-card">
+                    <h3>Reception</h3>
+                    <p><strong>Time:</strong> 6:00 PM</p>
+                    <p><strong>Where:</strong> The Grand Banquet Hall<br>789 Celebration Blvd, Flora City, FC 12345</p>
+                </div>
+
+                <!-- Location 4 -->
+                <div class="details-card">
+                    <h3>After Party</h3>
+                    <p><strong>Time:</strong> 11:00 PM</p>
+                    <p><strong>Where:</strong> Downtown Lounge<br>101 Nightlife St, Flora City, FC 12345</p>
+                </div>
             </div>
         </section>
 
@@ -201,7 +240,6 @@
             <h2>RSVP</h2>
             <p class="rsvp-deadline">Please kindly respond by August 1st, 2026.</p>
             
-            <!-- Replace the onsubmit alert with your actual form action url when ready -->
             <form id="rsvp-form" onsubmit="event.preventDefault(); alert('Thank you! Your RSVP has been received.');" method="POST">
                 <div>
                     <label for="name">Full Name(s)</label>
@@ -222,40 +260,14 @@
                     </select>
                 </div>
 
-                <div id="meal-group">
-                    <label for="meal">Meal Preference</label>
-                    <select id="meal" name="meal">
-                        <option value="" disabled selected>Select a meal...</option>
-                        <option value="chicken">Herb Roasted Chicken</option>
-                        <option value="beef">Braised Short Rib</option>
-                        <option value="vegetarian">Mushroom Risotto (Vegetarian)</option>
-                    </select>
-                </div>
-
                 <button type="submit">Send RSVP</button>
             </form>
         </section>
     </main>
 
     <script>
-        // Form Logic: Conditionally show the meal selection based on attendance
-        const attendanceSelect = document.getElementById('attendance');
-        const mealGroup = document.getElementById('meal-group');
-        const mealSelect = document.getElementById('meal');
-
-        attendanceSelect.addEventListener('change', function() {
-            if (this.value === 'yes') {
-                mealGroup.style.display = 'block';
-                mealSelect.setAttribute('required', 'true');
-            } else {
-                mealGroup.style.display = 'none';
-                mealSelect.removeAttribute('required');
-                mealSelect.value = ''; // Reset the meal value if they decline
-            }
-        });
-
         // Set the date we're counting down to (Month Day, Year HH:MM:SS)
-        const weddingDate = new Date("August 15, 2026 16:00:00").getTime();
+        const weddingDate = new Date("August 15, 2026 14:00:00").getTime(); // Set to 2:00 PM based on the first event
 
         // Update the count down every 1 second
         const timer = setInterval(function() {
