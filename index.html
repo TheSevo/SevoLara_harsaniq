@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sevak & Lara's Wedding</title>
+    <title>Sevak & Lara</title>
     <style>
         /* CSS Variables for easy color theme changes */
         :root {
@@ -186,13 +186,13 @@
 
     <!-- Hero Section -->
     <header>
-        <div class="pre-title">We are getting married</div>
+        <div class="pre-title">On se marie</div>
         <h1>Sevak & Lara</h1>
         <div class="date">August 15, 2026</div>
         
         <div class="countdown" id="countdown" aria-label="Countdown to wedding">
-            <div><span id="days">00</span> Days</div>
-            <div><span id="hours">00</span> Hours</div>
+            <div><span id="days">00</span> Jours</div>
+            <div><span id="hours">00</span> Heures</div>
             <div><span id="minutes">00</span> Mins</div>
             <div><span id="seconds">00</span> Secs</div>
         </div>
@@ -202,35 +202,35 @@
         <!-- Event Details -->
         <section class="section" id="details">
             <h2>The Details</h2>
-            <p><em>Dress code is semi-formal. We can't wait to celebrate with you!</em></p>
+            <p><em>Le code couleur est tout sauf du blanc.</em></p>
             
             <div class="details-grid">
                 <!-- Location 1 -->
                 <div class="details-card">
-                    <h3>Ceremony</h3>
-                    <p><strong>Time:</strong> 2:00 PM</p>
-                    <p><strong>Where:</strong> St. Mary's Cathedral<br>123 Holy Way, Flora City, FC 12345</p>
+                    <h3>Maison du marié</h3>
+                    <p><strong>Heure:</strong>11h00</p>
+                    <p><strong>Lieu:</strong> Ayrivank Guesthouse<br>Goght, Kotayk</p>
                 </div>
                 
                 <!-- Location 2 -->
                 <div class="details-card">
-                    <h3>Cocktail Hour</h3>
-                    <p><strong>Time:</strong> 4:00 PM</p>
-                    <p><strong>Where:</strong> Botanical Garden Terrace<br>456 Nature Path, Flora City, FC 12345</p>
+                    <h3>Maison de la mariée</h3>
+                    <p><strong>Heure:</strong>12h30</p>
+                    <p><strong>Lieu:</strong>A planifier<br>Goght, Kotayk</p>
                 </div>
 
                 <!-- Location 3 -->
                 <div class="details-card">
-                    <h3>Reception</h3>
-                    <p><strong>Time:</strong> 6:00 PM</p>
-                    <p><strong>Where:</strong> The Grand Banquet Hall<br>789 Celebration Blvd, Flora City, FC 12345</p>
+                    <h3>Cérémonie</h3>
+                    <p><strong>Heure:</strong> 14h00</p>
+                    <p><strong>Lieu:</strong> Monastère de Geghard<br>Geghardavank, Kotyak</p>
                 </div>
 
                 <!-- Location 4 -->
                 <div class="details-card">
-                    <h3>After Party</h3>
-                    <p><strong>Time:</strong> 11:00 PM</p>
-                    <p><strong>Where:</strong> Downtown Lounge<br>101 Nightlife St, Flora City, FC 12345</p>
+                    <h3>Fête</h3>
+                    <p><strong>Heure:</strong> 18h00</p>
+                    <p><strong>Lieu:</strong> Astafyan Hall<br>Jrvej, Kotayk</p>
                 </div>
             </div>
         </section>
@@ -238,29 +238,29 @@
         <!-- RSVP Section -->
         <section class="section" id="rsvp">
             <h2>RSVP</h2>
-            <p class="rsvp-deadline">Please kindly respond by August 1st, 2026.</p>
+            <p class="rsvp-deadline">Veuillez nous donner votre réponse avant le 1er Août 2026.</p>
             
-            <form id="rsvp-form" onsubmit="event.preventDefault(); alert('Thank you! Your RSVP has been received.');" method="POST">
+            <form id="rsvp-form" onsubmit="event.preventDefault(); alert('Merci votre présence a été validée.');" method="POST">
                 <div>
-                    <label for="name">Full Name(s)</label>
-                    <input type="text" id="name" name="name" placeholder="E.g., Jane & John Doe" autocomplete="name" required>
+                    <label for="name">Nom(s) complet(s)</label>
+                    <input type="text" id="name" name="name" placeholder="Ex : Anna & Nikol Pashinyan" autocomplete="name" required>
                 </div>
                 
                 <div>
-                    <label for="email">Email Address</label>
+                    <label for="email">Votre adresse mail</label>
                     <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" required>
                 </div>
 
                 <div>
-                    <label for="attendance">Will you attend?</label>
+                    <label for="attendance">Serez-vous présents ?</label>
                     <select id="attendance" name="attendance" required>
-                        <option value="" disabled selected>Select an option...</option>
-                        <option value="yes">Joyfully Accept</option>
-                        <option value="no">Regretfully Decline</option>
+                        <option value="" disabled selected>Choisissez une option...</option>
+                        <option value="yes">Avec grand plaisir !</option>
+                        <option value="no">Malheureusement absent</option>
                     </select>
                 </div>
 
-                <button type="submit">Send RSVP</button>
+                <button type="submit">Envoyer réponse</button>
             </form>
         </section>
     </main>
