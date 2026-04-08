@@ -54,7 +54,7 @@ nav a:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: #fdfaf6; /* Elegant soft cream */
+    background: linear-gradient(rgba(253, 250, 246, 0.7), rgba(253, 250, 246, 0.7)), url('votre-image-1.jpg') center/cover no-repeat;
     padding-top: 60px;
 }
 
@@ -92,6 +92,11 @@ h2 {
     color: #2c2c2c;
 }
 
+/* Details Section */
+.details {
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('votre-image-2.jpg') center/cover no-repeat;
+}
+
 /* Event Details Boxes */
 .details-container {
     display: flex;
@@ -119,7 +124,7 @@ h2 {
 
 /* RSVP Form */
 .rsvp-section {
-    background: #fdfaf6;
+    background: linear-gradient(rgba(253, 250, 246, 0.7), rgba(253, 250, 246, 0.7)), url('votre-image-3.jpg') center/cover no-repeat;
 }
 
 .rsvp-form {
