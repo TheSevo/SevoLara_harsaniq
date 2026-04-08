@@ -54,7 +54,7 @@ nav a:hover {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(rgba(253, 250, 246, 0.7), rgba(253, 250, 246, 0.7)), url('votre-image-1.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(253, 250, 246, 0.7), rgba(253, 250, 246, 0.7)), url('Background bloc 1.jpeg') center/cover no-repeat;
     padding-top: 60px;
 }
 
@@ -94,7 +94,7 @@ h2 {
 
 /* Details Section */
 .details {
-    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('votre-image-2.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('Background bloc 2.jpeg') center/cover no-repeat;
 }
 
 /* Event Details Boxes */
@@ -124,7 +124,7 @@ h2 {
 
 /* RSVP Form */
 .rsvp-section {
-    background: linear-gradient(rgba(253, 250, 246, 0.7), rgba(253, 250, 246, 0.7)), url('votre-image-3.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(253, 250, 246, 0.7), rgba(253, 250, 246, 0.7)), url('Background bloc 3.jpeg') center/cover no-repeat;
 }
 
 .rsvp-form {
