@@ -1,6 +1,6 @@
 // Set the date we're counting down to
 // Format: "Month Day, Year HH:MM:SS"
-const weddingDate = new Date("August 15, 2026 14:00:00").getTime();
+const weddingDate = new Date("August 15, 2026 00:00:00").getTime();
 
 // Find the countdown element
 const countdownElement = document.getElementById("countdown");
@@ -52,3 +52,36 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 }); // Starts animation when 10% of the element is visible on screen
 
 fadeElements.forEach(element => observer.observe(element));
+
+// Google Sheet Form Submission Logic
+const rsvpForm = document.getElementById('rsvp-form');
+const formStatus = document.getElementById('form-status');
+
+rsvpForm.addEventListener('submit', function(e) {
+    e.preventDefault(); // Stop the default form submission
+
+    const scriptURL = 'YOUR_GOOGLE_SCRIPT_URL'; // <-- PASTE YOUR SCRIPT URL HERE
+    const formData = new FormData(rsvpForm);
+    const submitButton = rsvpForm.querySelector('.submit-btn');
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Envoi en cours...';
+
+    fetch(scriptURL, { method: 'POST', body: formData })
+        .then(response => response.json())
+        .then(data => {
+            if (data.result === 'success') {
+                formStatus.textContent = 'Merci ! Votre réponse a bien été enregistrée.';
+                formStatus.style.color = '#d4af37';
+                rsvpForm.reset();
+            }
+        })
+        .catch(error => {
+            formStatus.textContent = 'Oups ! Une erreur est survenue. Veuillez réessayer.';
+            formStatus.style.color = 'red';
+        })
+        .finally(() => {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Envoyer';
+        });
+});
