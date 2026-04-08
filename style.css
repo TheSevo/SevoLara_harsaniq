@@ -221,10 +221,9 @@ input:focus, select:focus, textarea:focus {
 /* Footer */
 footer {
     text-align: center;
-    padding: 2rem;
     padding: 1rem;
-    background: #2c2c2c;
-    color: #fff;
+    background: #fff;
+    color: #2c2c2c;
     font-size: 0.9rem;
 }
 
