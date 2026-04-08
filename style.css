@@ -245,3 +245,9 @@ footer {
     opacity: 1;
     transform: translateY(0); /* Moves to original position smoothly */
 }
+
+#form-status {
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: bold;
+}
