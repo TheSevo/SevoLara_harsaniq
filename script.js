@@ -57,36 +57,25 @@ fadeElements.forEach(element => observer.observe(element));
 const rsvpForm = document.getElementById('rsvp-form');
 const formStatus = document.getElementById('form-status');
 
-rsvpForm.addEventListener('submit', function(e) {
-    e.preventDefault(); // Stop the default form submission
+let submitted = false;
 
-    // --- GOOGLE FORMS INVISIBLE BACKEND ---
-    // 1. Paste your Google Form ID into this URL (Make sure it ends in /formResponse)
-    const formURL = 'https://docs.google.com/forms/d/e/1FAIpQLSfscczibt38T-5bXpVERW-3XMvR7naB7LMcOObqQZURWo54Aw/formResponse';
-    
-    // Use URLSearchParams to ensure the data is sent in the correct, simple format
-    const formData = new URLSearchParams();
-    formData.append('entry.2069339004', document.getElementById('guest-name').value);
-    formData.append('entry.1580326361', document.getElementById('attending').value);
+// Listen for the iframe to load (which happens after Google receives the data)
+document.getElementById('hidden_iframe').addEventListener('load', function() {
+    if (submitted) {
+        formStatus.textContent = 'Merci ! Votre réponse a bien été enregistrée.';
+        formStatus.style.color = '#d4af37';
+        rsvpForm.reset();
 
+        const submitButton = rsvpForm.querySelector('.submit-btn');
+        submitButton.disabled = false;
+        submitButton.textContent = 'Envoyer';
+        submitted = false;
+    }
+});
+
+rsvpForm.addEventListener('submit', function() {
+    submitted = true;
     const submitButton = rsvpForm.querySelector('.submit-btn');
-
     submitButton.disabled = true;
     submitButton.textContent = 'Envoi en cours...';
-
-    // Send the data invisibly to Google Forms (which passes it directly to your Sheet)
-    fetch(formURL, { method: 'POST', mode: 'no-cors', body: formData })
-        .then(() => {
-            formStatus.textContent = 'Merci ! Votre réponse a bien été enregistrée.';
-            formStatus.style.color = '#d4af37';
-            rsvpForm.reset();
-        })
-        .catch(error => {
-            formStatus.textContent = 'Oups ! Une erreur est survenue. Veuillez réessayer.';
-            formStatus.style.color = 'red';
-        })
-        .finally(() => {
-            submitButton.disabled = false;
-            submitButton.textContent = 'Envoyer';
-        });
 });
