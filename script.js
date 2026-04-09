@@ -73,8 +73,7 @@ document.getElementById('hidden_iframe').addEventListener('load', function() {
     }
 });
 
-/* Temporarily commented out to reveal the true Google error!
- rsvpForm.addEventListener('submit', function() {
+rsvpForm.addEventListener('submit', function() {
     submitted = true;
     const submitButton = rsvpForm.querySelector('.submit-btn');
     
@@ -83,4 +82,20 @@ document.getElementById('hidden_iframe').addEventListener('load', function() {
         submitButton.disabled = true;
         submitButton.textContent = 'Envoi en cours...';
     }, 50);
-}); */
+});
+
+// Click to Enter & Audio Logic
+const enterScreen = document.getElementById('enter-screen');
+const enterBtn = document.getElementById('enter-btn');
+const bgMusic = document.getElementById('bg-music');
+
+if (enterBtn) {
+    enterBtn.addEventListener('click', () => {
+        // Play the music
+        bgMusic.play().catch(error => console.log("Audio playback failed:", error));
+        
+        // Fade out the overlay and allow the user to scroll
+        enterScreen.classList.add('hidden-screen');
+        document.body.classList.remove('no-scroll');
+    });
+}
