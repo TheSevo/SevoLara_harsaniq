@@ -60,21 +60,26 @@ const formStatus = document.getElementById('form-status');
 rsvpForm.addEventListener('submit', function(e) {
     e.preventDefault(); // Stop the default form submission
 
-    const scriptURL = 'YOUR_GOOGLE_SCRIPT_URL'; // <-- PASTE YOUR SCRIPT URL HERE
-    const formData = new FormData(rsvpForm);
+    // --- GOOGLE FORMS INVISIBLE BACKEND ---
+    // 1. Paste your Google Form ID into this URL (Make sure it ends in /formResponse)
+    const formURL = 'https://docs.google.com/forms/d/e/1FAIpQLSfscczibt38T-5bXpVERW-3XMvR7naB7LMcOObqQZURWo54Aw/formResponse';
+    
+    const data = new FormData();
+    // 2. Replace the 'entry.111111' numbers with your actual entry IDs from the pre-filled link
+    data.append('entry.2069339004', document.getElementById('guest-name').value);
+    data.append('entry.1580326361', document.getElementById('attending').value);
+
     const submitButton = rsvpForm.querySelector('.submit-btn');
 
     submitButton.disabled = true;
     submitButton.textContent = 'Envoi en cours...';
 
-    fetch(scriptURL, { method: 'POST', body: formData })
-        .then(response => response.json())
-        .then(data => {
-            if (data.result === 'success') {
-                formStatus.textContent = 'Merci ! Votre réponse a bien été enregistrée.';
-                formStatus.style.color = '#d4af37';
-                rsvpForm.reset();
-            }
+    // Send the data invisibly to Google Forms (which passes it directly to your Sheet)
+    fetch(formURL, { method: 'POST', mode: 'no-cors', body: data })
+        .then(() => {
+            formStatus.textContent = 'Merci ! Votre réponse a bien été enregistrée.';
+            formStatus.style.color = '#d4af37';
+            rsvpForm.reset();
         })
         .catch(error => {
             formStatus.textContent = 'Oups ! Une erreur est survenue. Veuillez réessayer.';
