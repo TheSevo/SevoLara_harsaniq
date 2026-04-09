@@ -76,6 +76,10 @@ document.getElementById('hidden_iframe').addEventListener('load', function() {
 rsvpForm.addEventListener('submit', function() {
     submitted = true;
     const submitButton = rsvpForm.querySelector('.submit-btn');
-    submitButton.disabled = true;
-    submitButton.textContent = 'Envoi en cours...';
+    
+    // Delay the button lock by 50 milliseconds so the browser doesn't cancel the submission
+    setTimeout(() => {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Envoi en cours...';
+    }, 50);
 });
