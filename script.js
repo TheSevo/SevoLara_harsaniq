@@ -74,6 +74,8 @@ document.getElementById('hidden_iframe').addEventListener('load', function() {
 });
 
 rsvpForm.addEventListener('submit', function() {
+/* Temporarily commented out to reveal the true Google error!
+ rsvpForm.addEventListener('submit', function() {
     submitted = true;
     const submitButton = rsvpForm.querySelector('.submit-btn');
     
@@ -83,3 +85,4 @@ rsvpForm.addEventListener('submit', function() {
         submitButton.textContent = 'Envoi en cours...';
     }, 50);
 });
+}); */
