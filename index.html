@@ -66,12 +66,12 @@
                 
                 <!-- Boutons pour la Cérémonie -->
                 <div class="action-buttons">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Geghard+Monastery+Armenia" target="_blank" class="action-btn map-btn" data-i18n="btn_map">🗺️ Itinéraire</a>
+                    <a href="#" onclick="openMapMenu(event, 40.1404, 44.8164)" class="action-btn map-btn" data-i18n="btn_map">🗺️ Itinéraire</a>
                     <div class="taxi-buttons">
                         <a href="https://taxi.yandex.com/" onclick="openTaxiApp(event, 'yandextaxi://route?end-lat=40.1404&end-lon=44.8164', 'https://taxi.yandex.com/')" class="app-logo-btn" title="Yandex Go">
                             <img src="yandex.png" alt="Yandex Go">
                         </a>
-                        <a href="https://ridegg.com/" onclick="openTaxiApp(event, 'ggtaxi://', 'https://ridegg.com/')" class="app-logo-btn" title="ggTaxi">
+                        <a href="https://team.gg/" onclick="openTaxiApp(event, 'ggtaxi://', 'https://team.gg/')" class="app-logo-btn" title="ggTaxi">
                             <img src="gg.png" alt="ggTaxi">
                         </a>
                     </div>
@@ -84,12 +84,12 @@
 
                 <!-- Boutons pour la Réception -->
                 <div class="action-buttons">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Astafyan+Hall+Restaurant+Complex+Jrvej+Armenia" target="_blank" class="action-btn map-btn" data-i18n="btn_map">🗺️ Itinéraire</a>
+                    <a href="#" onclick="openMapMenu(event, 40.1983, 44.5947)" class="action-btn map-btn" data-i18n="btn_map">🗺️ Itinéraire</a>
                     <div class="taxi-buttons">
                         <a href="https://taxi.yandex.com/" onclick="openTaxiApp(event, 'yandextaxi://route?end-lat=40.1983&end-lon=44.5947', 'https://taxi.yandex.com/')" class="app-logo-btn" title="Yandex Go">
                             <img src="yandex.png" alt="Yandex Go">
                         </a>
-                        <a href="https://ridegg.com/" onclick="openTaxiApp(event, 'ggtaxi://', 'https://ridegg.com/')" class="app-logo-btn" title="ggTaxi">
+                        <a href="https://team.gg/" onclick="openTaxiApp(event, 'ggtaxi://', 'https://team.gg/')" class="app-logo-btn" title="ggTaxi">
                             <img src="gg.png" alt="ggTaxi">
                         </a>
                     </div>
@@ -125,6 +125,20 @@
         <!-- Hidden iframe to silently capture the Google Form redirect -->
         <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
     </section>
+
+        <!-- Modal Choix de Navigation -->
+        <div id="nav-modal" class="modal-overlay hidden-screen">
+            <div class="nav-modal-content">
+                <h3 data-i18n="choose_nav">Choisir l'application :</h3>
+                <div class="nav-links">
+                    <a id="link-gmaps" href="#" target="_blank" class="nav-app-btn">📍 Google Maps</a>
+                    <a id="link-waze" href="#" target="_blank" class="nav-app-btn">🚗 Waze</a>
+                    <a id="link-amaps" href="#" target="_blank" class="nav-app-btn">🍏 Apple Maps</a>
+                    <a id="link-yandex" href="#" target="_blank" class="nav-app-btn">🟡 Yandex Maps</a>
+                </div>
+                <button class="close-btn" onclick="closeMapMenu()" data-i18n="cancel">Annuler</button>
+            </div>
+        </div>
 
     <!-- Footer -->
     <footer>
