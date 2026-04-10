@@ -1,3 +1,117 @@
+// --- Dictionnaire des traductions ---
+const translations = {
+    fr: {
+        page_title: "Sevak & Lara ❤️",
+        names: "Sevak & Lara",
+        sound_msg: "Mettez le son pour une meilleure expérience 🎵",
+        enter: "Entrer",
+        nav_home: "Accueil",
+        nav_details: "Détails",
+        nav_rsvp: "Formulaire",
+        we_getting_married: "On se marie !",
+        date_location: "15 Août 2026 • Arménie",
+        details_title: "Détails",
+        ceremony: "Cérémonie",
+        geghard: "Monastère de Geghard<br>",
+        reception: "Réception",
+        astafyan: "Astafyan Hall<br>Jrvej",
+        rsvp_title: "Formulaire de présence",
+        rsvp_deadline: "À remplir avant le 01 Août 2026.",
+        full_name: "Nom complet :",
+        name_placeholder: "Prénom Nom",
+        will_attend: "Serez-vous présents ?",
+        select_option: "Sélectionner...",
+        yes: "Evidemment !",
+        no: "Malheureusement non...",
+        send: "Envoyer",
+        footer: "Fais avec ❤️ pour le mariage de Sevak et Lara",
+        countdown_days: "j",
+        countdown_hours: "h",
+        countdown_minutes: "m",
+        countdown_seconds: "s",
+        d_day: "JOUR J !!!!!",
+        msg_yes: "Merci ! Nous avons hâte de célébrer avec vous. 🎉",
+        msg_no: "C'est noté. Vous nous manquerez ! 🥺",
+        msg_default: "Merci ! Votre réponse a bien été enregistrée.",
+        msg_error: "Veuillez indiquer si vous serez présents avant d'envoyer.",
+        msg_sending: "Envoi en cours..."
+    },
+    ru: {
+        page_title: "Севак и Лара ❤️",
+        names: "Севак и Лара",
+        sound_msg: "Включите звук для лучшего впечатления 🎵",
+        enter: "Войти",
+        nav_home: "Главная",
+        nav_details: "Детали",
+        nav_rsvp: "Анкета",
+        we_getting_married: "Мы женимся!",
+        date_location: "15 Августа 2026 • Армения",
+        details_title: "Детали",
+        ceremony: "Церемония",
+        geghard: "Монастырь Гегард<br>",
+        reception: "Банкет",
+        astafyan: "Astafyan Hall<br>Джрвеж",
+        rsvp_title: "Анкета присутствия",
+        rsvp_deadline: "Заполнить до 01 Августа 2026.",
+        full_name: "Полное имя :",
+        name_placeholder: "Имя Фамилия",
+        will_attend: "Вы будете присутствовать?",
+        select_option: "Выбрать...",
+        yes: "Конечно!",
+        no: "К сожалению, нет...",
+        send: "Отправить",
+        footer: "Сделано с ❤️ для свадьбы Севака и Лары",
+        countdown_days: "д",
+        countdown_hours: "ч",
+        countdown_minutes: "м",
+        countdown_seconds: "с",
+        d_day: "ДЕНЬ СВАДЬБЫ !!!!!",
+        msg_yes: "Спасибо! Ждем с нетерпением возможности отпраздновать с вами. 🎉",
+        msg_no: "Принято. Нам будет вас не хватать! 🥺",
+        msg_default: "Спасибо! Ваш ответ записан.",
+        msg_error: "Пожалуйста, укажите, будете ли вы присутствовать, прежде чем отправлять.",
+        msg_sending: "Отправка..."
+    },
+    hy: {
+        page_title: "Սևակ և Լարա ❤️",
+        names: "Սևակ և Լարա",
+        sound_msg: "Միացրեք ձայնը լավագույն փորձի համար 🎵",
+        enter: "Մուտք",
+        nav_home: "Գլխավոր",
+        nav_details: "Մանրամասներ",
+        nav_rsvp: "Հարցաթերթիկ",
+        we_getting_married: "Մենք ամուսնանում ենք!",
+        date_location: "15 Օգոստոս 2026 • Հայաստան",
+        details_title: "Մանրամասներ",
+        ceremony: "Արարողություն",
+        geghard: "Գեղարդի վանք<br>",
+        reception: "Ընդունելություն",
+        astafyan: "Աստաֆյան սրահ<br>Ջրվեժ",
+        rsvp_title: "Մասնակցության հարցաթերթիկ",
+        rsvp_deadline: "Լրացնել մինչև 01 Օգոստոս 2026:",
+        full_name: "Ամբողջական անուն :",
+        name_placeholder: "Անուն Ազգանուն",
+        will_attend: "Կներկայանա՞ք:",
+        select_option: "Ընտրել...",
+        yes: "Անպայման!",
+        no: "Ցավոք, ոչ...",
+        send: "Ուղարկել",
+        footer: "Պատրաստված է ❤️-ով Սևակի և Լարայի հարսանիքի համար",
+        countdown_days: "օ",
+        countdown_hours: "ժ",
+        countdown_minutes: "ր",
+        countdown_seconds: "վ",
+        d_day: "ԱՅՍՕՐ Է !!!!!",
+        msg_yes: "Շնորհակալություն: Անհամբեր սպասում ենք ձեզ հետ նշելուն: 🎉",
+        msg_no: "Նշված է: Մենք ձեզ կկարոտենք: 🥺",
+        msg_default: "Շնորհակալություն: Ձեր պատասխանը գրանցված է:",
+        msg_error: "Խնդրում ենք նշել՝ արդյոք կներկայանաք, նախքան ուղարկելը:",
+        msg_sending: "Ուղարկվում է..."
+    }
+};
+
+let currentLang = 'fr'; // Langue par défaut de la page
+
 // Set the date we're counting down to
 // Format: "Month Day, Year HH:MM:SS"
 const weddingDate = new Date("August 15, 2026 00:00:00").getTime();
@@ -16,7 +130,7 @@ const updateCountdown = setInterval(function() {
     // If the count down is finished, write some text
     if (distance < 0) {
         clearInterval(updateCountdown);
-        countdownElement.innerHTML = "JOUR J !!!!!";
+        countdownElement.innerHTML = translations[currentLang].d_day;
         
         // Trigger the confetti effect using the website's theme colors
         if (typeof confetti === 'function') {
@@ -37,7 +151,7 @@ const updateCountdown = setInterval(function() {
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     // Display the result
-    countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    countdownElement.innerHTML = `${days}${translations[currentLang].countdown_days} ${hours}${translations[currentLang].countdown_hours} ${minutes}${translations[currentLang].countdown_minutes} ${seconds}${translations[currentLang].countdown_seconds}`;
 }, 1000);
 
 // Scroll Fade-In Animation Logic
@@ -65,7 +179,7 @@ document.getElementById('hidden_iframe').addEventListener('load', function() {
         const attendanceValue = document.getElementById('attending').value;
         
         if (attendanceValue === "Evidemment !") {
-            formStatus.textContent = 'Merci ! Nous avons hâte de célébrer avec vous. 🎉';
+            formStatus.textContent = translations[currentLang].msg_yes;
             
             // Déclenchement des confettis
             if (typeof confetti === 'function') {
@@ -77,9 +191,9 @@ document.getElementById('hidden_iframe').addEventListener('load', function() {
                 });
             }
         } else if (attendanceValue === "Malheureusement non...") {
-            formStatus.textContent = 'C\'est noté. Vous nous manquerez ! 🥺';
+            formStatus.textContent = translations[currentLang].msg_no;
         } else {
-            formStatus.textContent = 'Merci ! Votre réponse a bien été enregistrée.';
+            formStatus.textContent = translations[currentLang].msg_default;
         }
 
         formStatus.style.color = '#d4af37';
@@ -100,7 +214,7 @@ rsvpForm.addEventListener('submit', function(event) {
     // Vérification de sécurité avant l'envoi
     if (!attendanceValue) {
         event.preventDefault(); // Bloque l'envoi du formulaire
-        formStatus.textContent = 'Veuillez indiquer si vous serez présents avant d\'envoyer.';
+        formStatus.textContent = translations[currentLang].msg_error;
         formStatus.style.color = '#e74c3c'; // Un rouge doux pour indiquer l'erreur
         return;
     }
@@ -111,7 +225,7 @@ rsvpForm.addEventListener('submit', function(event) {
     // Delay the button lock by 50 milliseconds so the browser doesn't cancel the submission
     setTimeout(() => {
         submitButton.disabled = true;
-        submitButton.textContent = 'Envoi en cours...';
+        submitButton.textContent = translations[currentLang].msg_sending;
     }, 50);
 });
 
@@ -130,3 +244,31 @@ if (enterBtn) {
         document.body.classList.remove('no-scroll');
     });
 }
+
+// --- Fonctionnalité de changement de langue ---
+function setLanguage(lang) {
+    currentLang = lang;
+    document.title = translations[lang].page_title; // Change le titre de l'onglet
+
+    // Met à jour le texte de tous les éléments possédant l'attribut data-i18n
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) el.innerHTML = translations[lang][key];
+    });
+
+    // Met à jour les 'placeholder' (texte gris clair des champs)
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (translations[lang][key]) el.setAttribute('placeholder', translations[lang][key]);
+    });
+
+    // Change l'aspect du bouton actif
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+}
+
+// Attache l'événement de clic à tous les boutons de langue
+document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => setLanguage(e.target.getAttribute('data-lang')));
+});
