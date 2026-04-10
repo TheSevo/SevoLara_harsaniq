@@ -234,6 +234,42 @@ h2 {
     font-size: 1.5rem;
 }
 
+/* Action Buttons in Details */
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 1.5rem;
+}
+
+.action-btn {
+    display: block;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.map-btn {
+    background: #f8f9fa;
+    color: #2c2c2c;
+    border: 1px solid #ddd;
+}
+
+.taxi-btn {
+    background: #ffcc00; /* Couleur jaune Yandex/gg */
+    color: #222;
+}
+
 /* RSVP Form */
 .rsvp-section {
     background-image: url('Background bloc 3.jpeg');
