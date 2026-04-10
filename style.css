@@ -148,6 +148,44 @@ h2 {
     color: #2c2c2c;
 }
 
+/* Travel Divider Animation */
+.travel-divider {
+    background: #fff;
+    padding: 3rem 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flight-path {
+    width: 70%;
+    border-top: 2px dashed #d4af37;
+    opacity: 0.6;
+}
+
+.plane {
+    font-size: 2.5rem;
+    position: absolute;
+    left: -10%; /* Commence en dehors de l'écran à gauche */
+    /* L'émoji avion regarde par défaut en haut à droite, on le tourne pour qu'il vole à plat */
+    transform: rotate(45deg);
+    z-index: 2;
+}
+
+/* Quand l'élément devient visible au scroll (grâce au JS existant), l'avion décolle */
+.travel-divider.visible .plane {
+    animation: flyAcross 4s ease-in-out forwards;
+}
+
+/* L'animation du vol avec un petit arc de cercle au milieu */
+@keyframes flyAcross {
+    0% { left: -10%; transform: rotate(45deg) translateY(0); }
+    50% { transform: rotate(45deg) translateY(-20px); } 
+    100% { left: 110%; transform: rotate(45deg) translateY(0); } /* Termine en dehors à droite */
+}
+
 /* Details Section */
 .details {
     background-image: url('Background bloc 2.jpeg');
