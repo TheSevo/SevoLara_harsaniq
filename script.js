@@ -62,7 +62,26 @@ let submitted = false;
 // Listen for the iframe to load (which happens after Google receives the data)
 document.getElementById('hidden_iframe').addEventListener('load', function() {
     if (submitted) {
-        formStatus.textContent = 'Merci ! Votre réponse a bien été enregistrée.';
+        const attendanceValue = document.getElementById('attending').value;
+        
+        if (attendanceValue === "Evidemment !") {
+            formStatus.textContent = 'Merci ! Nous avons hâte de célébrer avec vous. 🎉';
+            
+            // Déclenchement des confettis
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 150,
+                    spread: 100,
+                    origin: { y: 0.6 },
+                    colors: ['#d4af37', '#ffffff', '#2c2c2c']
+                });
+            }
+        } else if (attendanceValue === "Malheureusement non...") {
+            formStatus.textContent = 'C\'est noté. Vous nous manquerez ! 🥺';
+        } else {
+            formStatus.textContent = 'Merci ! Votre réponse a bien été enregistrée.';
+        }
+
         formStatus.style.color = '#d4af37';
         rsvpForm.reset();
 
@@ -73,7 +92,17 @@ document.getElementById('hidden_iframe').addEventListener('load', function() {
     }
 });
 
-rsvpForm.addEventListener('submit', function() {
+rsvpForm.addEventListener('submit', function(event) {
+    const attendanceValue = document.getElementById('attending').value;
+    
+    // Vérification de sécurité avant l'envoi
+    if (!attendanceValue) {
+        event.preventDefault(); // Bloque l'envoi du formulaire
+        formStatus.textContent = 'Veuillez indiquer si vous serez présents avant d\'envoyer.';
+        formStatus.style.color = '#e74c3c'; // Un rouge doux pour indiquer l'erreur
+        return;
+    }
+
     submitted = true;
     const submitButton = rsvpForm.querySelector('.submit-btn');
     
