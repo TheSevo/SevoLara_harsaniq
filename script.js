@@ -73,8 +73,8 @@ const translations = {
         msg_sending: "Отправка..."
     },
     hy: {
-        page_title: "Սևակ և Լարա ❤️",
-        names: "Սևակ և Լարա",
+        page_title: "Սևակ և Լառա ❤️",
+        names: "Սևակ և Լառա",
         sound_msg: "Միացրեք ձայնը լավագույն փորձի համար 🎵",
         enter: "Մուտք",
         nav_home: "Գլխավոր",
@@ -96,7 +96,7 @@ const translations = {
         yes: "Անպայման!",
         no: "Ցավոք, ոչ...",
         send: "Ուղարկել",
-        footer: "Պատրաստված է ❤️-ով Սևակի և Լարայի հարսանիքի համար",
+        footer: "Պատրաստված է ❤️-ով Սևակի և Լառայի հարսանիքի համար",
         countdown_days: "օ",
         countdown_hours: "ժ",
         countdown_minutes: "ր",
