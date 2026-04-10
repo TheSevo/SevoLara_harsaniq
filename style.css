@@ -265,9 +265,26 @@ h2 {
     border: 1px solid #ddd;
 }
 
-.taxi-btn {
-    background: #ffcc00; /* Couleur jaune Yandex/gg */
+.taxi-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.taxi-buttons .action-btn {
+    flex: 1; /* Permet aux deux boutons de prendre la même largeur */
+    padding: 0.8rem 0.2rem;
+    font-size: 0.8rem;
+    letter-spacing: 0;
+}
+
+.taxi-yandex-btn {
+    background: #ffcc00; /* Jaune Yandex */
     color: #222;
+}
+
+.taxi-gg-btn {
+    background: #2c2c2c; /* Noir ggTaxi */
+    color: #fff;
 }
 
 /* RSVP Form */
