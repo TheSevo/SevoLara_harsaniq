@@ -281,3 +281,19 @@ function setLanguage(lang) {
 document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', (e) => setLanguage(e.target.getAttribute('data-lang')));
 });
+
+// --- Fonction de secours pour les applications de Taxi ---
+function openTaxiApp(event, appUrl, webUrl) {
+    event.preventDefault(); // Empêche l'ouverture immédiate du site web
+    
+    const startTime = Date.now();
+    window.location.href = appUrl; // Tente d'ouvrir l'application mobile (deep link)
+    
+    // Si après 1.5 seconde le navigateur n'a pas été mis en pause par l'ouverture de l'app,
+    // on en déduit que l'app n'est pas installée et on redirige vers le site web.
+    setTimeout(function() {
+        if (Date.now() - startTime < 2000) {
+            window.location.href = webUrl;
+        }
+    }, 1500);
+}
