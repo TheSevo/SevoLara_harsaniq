@@ -260,9 +260,14 @@ h2 {
 }
 
 .map-btn {
-    background: #f8f9fa;
-    color: #2c2c2c;
-    border: 1px solid #ddd;
+    background: #d4af37; /* Couleur Or du thème */
+    color: #fff; /* Texte en blanc */
+    border: none;
+    border-radius: 25px; /* Bords très arrondis (façon pilule) */
+}
+
+.map-btn:hover {
+    background: #2c2c2c; /* Devient sombre au survol */
 }
 
 .taxi-buttons {
