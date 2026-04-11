@@ -98,8 +98,12 @@ nav a:hover {
 
 /* Ajustements pour la barre de navigation sur les petits écrans */
 @media (max-width: 600px) {
+    nav ul {
+        justify-content: flex-start; /* Pousse les liens vers la gauche */
+        padding: 1.1rem 0.5rem;
+    }
     nav a {
-        margin: 0 0.5rem; /* Réduit la marge horizontale */
+        margin: 0 0.35rem; /* Réduit la marge pour tout faire rentrer */
         font-size: 0.75rem; /* Ajuste la taille du texte */
         letter-spacing: 0;
     }
