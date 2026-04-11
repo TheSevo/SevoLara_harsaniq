@@ -19,9 +19,11 @@ body {
 /* Language Dropdown */
 .lang-dropdown {
     position: absolute;
-    top: 50%;
+    top: 0;
+    bottom: 0; /* Prend automatiquement toute la hauteur de la barre */
     right: 20px;
-    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
 }
 
 .lang-dropdown-btn {
@@ -35,7 +37,7 @@ body {
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px; /* Même espacement que le sous-menu pour aligner le texte */
     transition: all 0.2s ease;
 }
 
@@ -47,9 +49,9 @@ body {
 .lang-dropdown-content {
     display: none;
     position: absolute;
-    left: -15px; /* Aligne parfaitement les drapeaux verticalement */
+    left: -16px; /* 15px padding + 1px bordure pour un alignement au pixel près */
     top: 100%;
-    margin-top: 16px; /* Aligné précisément avec le bas de la barre */
+    margin-top: 0; /* S'attache désormais toujours exactement au bas de la barre */
     background-color: rgba(255, 255, 255, 0.95); /* Même fond que la barre */
     min-width: auto; /* S'ajuste élégamment sans déborder de l'écran */
     box-shadow: none; /* Aucune ombre */
@@ -108,7 +110,8 @@ body {
 /* Dropdown spécifique pour l'écran de démarrage */
 .enter-lang-dropdown {
     top: 20px;
-    transform: none;
+    bottom: auto;
+    height: auto;
 }
 
 .enter-lang-dropdown .lang-dropdown-btn {
@@ -120,7 +123,7 @@ body {
 .enter-lang-dropdown .lang-dropdown-content {
     margin-top: 10px;
     border-top: 1px solid #eaeaea;
-    left: 0; /* Aligne avec l'espacement naturel du bouton d'accueil */
+    left: -1px; /* Compense la bordure pour aligner parfaitement les drapeaux */
 }
 
 /* Navigation Menu */
