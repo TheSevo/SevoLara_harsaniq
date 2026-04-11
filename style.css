@@ -29,6 +29,7 @@ body {
 .lang-dropdown-btn {
     background: transparent;
     border: none;
+    padding: 0; /* Supprime la marge par défaut du navigateur */
     color: #4a4a4a;
     font-size: 0.9rem;
     font-weight: 600;
