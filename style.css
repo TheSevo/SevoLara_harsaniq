@@ -89,10 +89,14 @@ nav a:hover {
 
 /* Ajustements pour la barre de navigation sur les petits écrans */
 @media (max-width: 600px) {
+    nav ul {
+        padding-top: 45px; /* Fait de la place pour les boutons au-dessus */
+        padding-bottom: 12px;
+    }
     nav a {
-        margin: 0 0.8rem; /* Réduit la marge horizontale */
-        font-size: 0.8rem; /* Réduit légèrement la taille du texte */
-        letter-spacing: 0.5px; /* Réduit l'espacement des lettres */
+        margin: 0 0.5rem; /* Réduit la marge horizontale */
+        font-size: 0.75rem; /* Ajuste la taille du texte */
+        letter-spacing: 0;
     }
 }
 
