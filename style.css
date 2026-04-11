@@ -124,7 +124,10 @@ body {
 .enter-lang-dropdown .lang-dropdown-content {
     margin-top: 10px;
     border-top: 1px solid #eaeaea;
-    left: -1px; /* Compense la bordure pour aligner parfaitement les drapeaux */
+    left: auto; /* Retire l'alignement à gauche qui causait la coupure */
+    right: 0; /* Aligne sur la droite pour rester à l'intérieur de l'écran */
+    border-radius: 8px; /* Forme de petite carte adoucie */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15); /* Ombre légère sur le fond sombre */
 }
 
 /* Navigation Menu */
@@ -135,6 +138,11 @@ header {
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Masque le texte des langues uniquement dans la barre du haut */
+header .lang-text {
+    display: none;
 }
 
 nav ul {
