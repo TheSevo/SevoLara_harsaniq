@@ -284,36 +284,44 @@ function setLanguage(lang) {
     });
 
     // Met à jour le bouton de la langue actuelle
-    const currentLangBtn = document.getElementById('lang-btn-current');
-    if (currentLangBtn) {
-        currentLangBtn.innerHTML = `${langFlags[lang]} <span style="font-size:0.7em">▼</span>`;
-    }
+    document.querySelectorAll('.lang-btn-current-text').forEach(btn => {
+        btn.innerHTML = `${langFlags[lang]} <span style="font-size:0.7em">▼</span>`;
+    });
 }
 
 // --- Gestion du menu déroulant des langues ---
-const dropBtn = document.getElementById('lang-btn-current');
-const dropContent = document.getElementById('lang-dropdown-content');
+const langDropdowns = document.querySelectorAll('.lang-dropdown');
 
-if (dropBtn && dropContent) {
-    dropBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        dropContent.classList.toggle('show');
-    });
+langDropdowns.forEach(dropdown => {
+    const btn = dropdown.querySelector('.lang-dropdown-btn');
+    const content = dropdown.querySelector('.lang-dropdown-content');
+    if (btn && content) {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            content.classList.toggle('show');
+        });
+    }
+});
 
-    // Fermer si on clique en dehors du menu
-    document.addEventListener('click', (e) => {
-        if (!dropBtn.contains(e.target) && !dropContent.contains(e.target)) {
-            dropContent.classList.remove('show');
+// Fermer si on clique en dehors du menu
+document.addEventListener('click', (e) => {
+    langDropdowns.forEach(dropdown => {
+        const btn = dropdown.querySelector('.lang-dropdown-btn');
+        const content = dropdown.querySelector('.lang-dropdown-content');
+        if (btn && content && !btn.contains(e.target) && !content.contains(e.target)) {
+            content.classList.remove('show');
         }
     });
-}
+});
 
 // Attache l'événement de clic à tous les liens du menu de langue
 document.querySelectorAll('.lang-dropdown-content a').forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
         setLanguage(e.currentTarget.getAttribute('data-lang'));
-        dropContent.classList.remove('show'); // Ferme le menu après sélection
+        document.querySelectorAll('.lang-dropdown-content').forEach(content => {
+            content.classList.remove('show'); // Ferme tous les menus
+        });
     });
 });
 
