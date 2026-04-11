@@ -261,6 +261,8 @@ if (enterBtn) {
 }
 
 // --- Fonctionnalité de changement de langue ---
+const langFlags = { fr: '🇫🇷 FR', hy: '🇦🇲 HY', ru: '🇷🇺 RU' };
+
 function setLanguage(lang) {
     currentLang = lang;
     document.title = translations[lang].page_title; // Change le titre de l'onglet
@@ -277,15 +279,38 @@ function setLanguage(lang) {
         if (translations[lang][key]) el.setAttribute('placeholder', translations[lang][key]);
     });
 
-    // Change l'aspect du bouton actif
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    // Met à jour le bouton de la langue actuelle
+    const currentLangBtn = document.getElementById('lang-btn-current');
+    if (currentLangBtn) {
+        currentLangBtn.innerHTML = `${langFlags[lang]} <span style="font-size:0.7em">▼</span>`;
+    }
+}
+
+// --- Gestion du menu déroulant des langues ---
+const dropBtn = document.getElementById('lang-btn-current');
+const dropContent = document.getElementById('lang-dropdown-content');
+
+if (dropBtn && dropContent) {
+    dropBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropContent.classList.toggle('show');
+    });
+
+    // Fermer si on clique en dehors du menu
+    document.addEventListener('click', (e) => {
+        if (!dropBtn.contains(e.target) && !dropContent.contains(e.target)) {
+            dropContent.classList.remove('show');
+        }
     });
 }
 
-// Attache l'événement de clic à tous les boutons de langue
-document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => setLanguage(e.target.getAttribute('data-lang')));
+// Attache l'événement de clic à tous les liens du menu de langue
+document.querySelectorAll('.lang-dropdown-content a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        setLanguage(e.currentTarget.getAttribute('data-lang'));
+        dropContent.classList.remove('show'); // Ferme le menu après sélection
+    });
 });
 
 // --- Fonction de secours pour les applications de Taxi ---
