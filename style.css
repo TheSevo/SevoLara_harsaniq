@@ -50,7 +50,8 @@ body {
 .lang-dropdown-content {
     display: none;
     position: absolute;
-    left: -16px; /* 15px padding + 1px bordure pour un alignement au pixel près */
+    left: auto; /* Retire l'alignement strict à gauche */
+    right: 0; /* Aligne sur la droite pour empêcher le menu d'être coupé */
     top: 100%;
     margin-top: 0; /* S'attache désormais toujours exactement au bas de la barre */
     background-color: rgba(255, 255, 255, 0.95); /* Même fond que la barre */
