@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body class="no-scroll">
-    <!-- Language Switcher -->
-    <div class="lang-switcher">
-        <button class="lang-btn active" data-lang="fr">FR</button>
-        <button class="lang-btn" data-lang="hy">HY</button>
-        <button class="lang-btn" data-lang="ru">RU</button>
+    <!-- Language Dropdown -->
+    <div class="lang-dropdown">
+        <button class="lang-dropdown-btn" id="lang-btn-current">🇫🇷 FR <span style="font-size:0.7em">▼</span></button>
+        <div class="lang-dropdown-content" id="lang-dropdown-content">
+            <a href="#" data-lang="fr">🇫🇷 FR</a>
+            <a href="#" data-lang="hy">🇦🇲 HY</a>
+            <a href="#" data-lang="ru">🇷🇺 RU</a>
+        </div>
     </div>
 
     <!-- Click to Enter Screen -->
