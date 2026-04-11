@@ -98,6 +98,12 @@ body {
     }
 }
 
+.flag-icon {
+    width: 20px;
+    height: auto;
+    border-radius: 2px;
+}
+
 /* Navigation Menu */
 header {
     background: rgba(255, 255, 255, 0.95);
