@@ -46,10 +46,10 @@ body {
 
 @media (max-width: 600px) {
     .lang-switcher {
-        top: auto;
-        bottom: 25px; /* Place le menu en bas de l'écran */
-        right: 50%;
-        transform: translateX(50%); /* Le centre parfaitement */
+        top: 65px; /* Place la bulle juste en dessous de la barre de navigation */
+        bottom: auto;
+        right: 15px; /* Dans le coin en haut à droite */
+        transform: none; /* Enlève le centrage */
         gap: 5px;
         background: rgba(255, 255, 255, 0.95);
         padding: 5px;
@@ -99,12 +99,12 @@ nav a:hover {
 /* Ajustements pour la barre de navigation sur les petits écrans */
 @media (max-width: 600px) {
     nav ul {
-        justify-content: flex-start; /* Pousse les liens vers la gauche */
-        padding: 1.1rem 0.5rem;
+        justify-content: center; /* Garde les liens bien au centre */
+        padding: 1rem 0.5rem;
     }
     nav a {
-        margin: 0 0.35rem; /* Réduit la marge pour tout faire rentrer */
-        font-size: 0.75rem; /* Ajuste la taille du texte */
+        margin: 0 0.5rem; /* Ajuste la marge */
+        font-size: 0.8rem; /* Ajuste la taille du texte */
         letter-spacing: 0;
     }
 }
