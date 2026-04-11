@@ -104,6 +104,23 @@ body {
     border-radius: 2px;
 }
 
+/* Dropdown spécifique pour l'écran de démarrage */
+.enter-lang-dropdown {
+    top: 20px;
+    transform: none;
+}
+
+.enter-lang-dropdown .lang-dropdown-btn {
+    background: rgba(255, 255, 255, 0.85); /* Fond pour être visible sur l'image */
+    padding: 8px 15px;
+    border-radius: 4px;
+}
+
+.enter-lang-dropdown .lang-dropdown-content {
+    margin-top: 10px;
+    border-top: 1px solid #eaeaea;
+}
+
 /* Navigation Menu */
 header {
     background: rgba(255, 255, 255, 0.95);
