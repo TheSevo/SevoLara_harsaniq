@@ -41,7 +41,8 @@ const translations = {
         msg_error: "Veuillez indiquer si vous serez présents avant d'envoyer.",
         msg_sending: "Envoi en cours...",
         choose_nav: "Choisir l'application :",
-        cancel: "Annuler"
+        cancel: "Annuler",
+        scroll_down: "Faites défiler"
     },
     ru: {
         page_title: "Севак и Лара ❤️",
@@ -84,7 +85,8 @@ const translations = {
         msg_error: "Пожалуйста, укажите, будете ли вы присутствовать, прежде чем отправлять.",
         msg_sending: "Отправка...",
         choose_nav: "Выберите навигатор:",
-        cancel: "Отмена"
+        cancel: "Отмена",
+        scroll_down: "Прокрутите вниз"
     },
     hy: {
         page_title: "Սևակ և Լարա ❤️",
@@ -127,7 +129,8 @@ const translations = {
         msg_error: "Խնդրում ենք նշել՝ արդյոք կներկայանաք, նախքան ուղարկելը:",
         msg_sending: "Ուղարկվում է...",
         choose_nav: "Ընտրեք հավելվածը՝",
-        cancel: "Չեղարկել"
+        cancel: "Չեղարկել",
+        scroll_down: "Ներքև իջեք"
     }
 };
 
@@ -263,8 +266,24 @@ if (enterBtn) {
         // Fade out the overlay and allow the user to scroll
         enterScreen.classList.add('hidden-screen');
         document.body.classList.remove('no-scroll');
+
+        // Affiche l'indicateur de défilement après 4 secondes d'inactivité
+        setTimeout(() => {
+            const scrollIndicator = document.getElementById('scroll-indicator');
+            if (window.scrollY < 50 && scrollIndicator) {
+                scrollIndicator.classList.add('show-hint');
+            }
+        }, 4000);
     });
 }
+
+// Fait disparaître l'indicateur dès que l'utilisateur commence à scroller
+window.addEventListener('scroll', () => {
+    const scrollIndicator = document.getElementById('scroll-indicator');
+    if (window.scrollY > 50 && scrollIndicator) {
+        scrollIndicator.classList.remove('show-hint');
+    }
+});
 
 // --- Fonctionnalité de changement de langue ---
 const langFlags = { 
