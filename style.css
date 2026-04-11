@@ -25,24 +25,23 @@ body {
 }
 
 .lang-dropdown-btn {
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid transparent;
+    background: transparent;
+    border: none;
     color: #4a4a4a;
     font-size: 0.9rem;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 6px;
-    padding: 6px 12px;
-    border-radius: 20px;
     transition: all 0.2s ease;
-    backdrop-filter: blur(5px);
 }
 
 .lang-dropdown-btn:hover {
     color: #d4af37;
-    background: #fff;
+    background: transparent;
 }
 
 .lang-dropdown-content {
@@ -94,7 +93,6 @@ body {
     }
     .lang-dropdown-btn {
         font-size: 0.8rem;
-        padding: 5px 10px;
     }
 }
 
